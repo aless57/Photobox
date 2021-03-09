@@ -1,6 +1,7 @@
 
 function display_gallery(gallery)  {
     let div = document.querySelector('#gallery_container');
+    console.log(gallery)
     gallery.forEach(photo => {
         let divTmp = document.createElement("div");
         let id = photo.then(response =>response.photo.id);

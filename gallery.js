@@ -1,14 +1,17 @@
 
 import photoloader from "./photoloader.js";
-let gallery = [];
+var gallery = [];
 
 function load() {
     let listPhotos = photoloader.loadRessource("/www/canals5/photobox/photos");
     return listPhotos.then(response => {
         gallery = response.photos;
+        console.log(gallery)
         return gallery});
+        
 }   
 
 export default {
-    load
+    load,
+    gallery
 }
