@@ -1,17 +1,15 @@
 
 function display_gallery(gallery)  {
-    let div = document.querySelector('#gallery_container');
+    let container = document.querySelector('#gallery_container');
+    let config = "https://webetu.iutnc.univ-lorraine.fr/";
     console.log(gallery)
-    gallery.forEach(photo => {
-        let divTmp = document.createElement("div");
-        let id = photo.then(response =>response.photo.id);
-        let file = photo.then(response =>response.photo.file)
-        divTmp.className = "vignette"
-        divTmp.innerHTML = ` <img data-uri="/www/canals5/photobox/photos/${id}"
-        src="https://webetu.iutnc.univ-lorraine.fr/www/canals5/photobox/img/small/${file}">`
-    });
-
-    
+    container.innerHTML = gallery.photos.reduce((acc, elem) => {
+        return acc + `
+        <div class = "vignette">
+            <img data-img = "${elem.photo.original.href}" data-uri = "${elem.links.self.href}" src = "${config + elem.photo.thumbnail.href}">
+        </div>
+        `
+    }, '')
 }
 
 export default {
