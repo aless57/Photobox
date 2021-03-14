@@ -1,7 +1,7 @@
 import gallery from "./gallery.js"
 import gallery_ui from "./gallery_ui.js"
 import lightbox_ui from "./lightbox_ui.js"
-import lightbox from "./lightbox.js"
+import lightbox from "./lightbox.js";
 
 
 document.querySelector('#load_gallery')
@@ -10,12 +10,15 @@ document.querySelector('#load_gallery')
   })
 
 document.querySelector('#lightbox_close').addEventListener('click', e => {
-  lightbox_ui.hide(); 
+  lightbox_ui.hide();
 })
 
-document.querySelector(".vignette").addEventListener('click', e => {
-  lightbox.load(e).then(lightbox_ui.display_lightbox)
-})
+var images = document.querySelectorAll(".vignette");
+for (let i=0;i < images.length; i++){
+    images[i].addEventListener("click", evt => {
+        console.log(i);
+    })
+}
 
   
 

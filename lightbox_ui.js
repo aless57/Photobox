@@ -1,6 +1,6 @@
 
 function display_lightbox(data) {
-    let container = document.querySelector("#lightbox_containerr");
+    let container = document.querySelector("#lightbox_container");
     let config = "https://webetu.iutnc.univ-lorraine.fr/";
     container.innerHTML = `
     <div id="lightbox">
