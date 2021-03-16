@@ -6,22 +6,25 @@ function display_lightbox(data) {
     <div id="lightbox">
     <div id="lightbox-head">
         <p id="lightbox_close">X</p>
-        <h1 id="lightbox_title">${data.title}</h1>
+        <h1 id="lightbox_title">${data.photo.titre}</h1>
     </div>
 
     <div id="lightbox-img">
-        <img id="lightbox_full_img" src="${config + data.original.href}">
+        <img id="lightbox_full_img" src="${config + data.photo.url.href}">
     </div>
 </div>
     `
+    document.querySelector('#lightbox_close').addEventListener('click', e => {
+        hide();
+    })
 }
 
 function show() {
-    document.getElementById("lightbox").style.display = 'block';
+    document.getElementById("lightbox").classList.toggle("lightbox");
 }
 
 function hide() {
-    document.getElementById("lightbox").style.display = 'none';
+    document.getElementById("lightbox").classList.toggle("hide");
 }
 
 export default {

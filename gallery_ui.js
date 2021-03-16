@@ -1,8 +1,9 @@
+import lightbox_ui from "./lightbox_ui.js";
+import lightbox from "./lightbox.js";
 
 function display_gallery(gallery)  {
     let container = document.querySelector('#gallery_container');
     let config = "https://webetu.iutnc.univ-lorraine.fr/";
-    console.log(gallery)
     container.innerHTML = gallery.photos.reduce((acc, elem) => {
         return acc + `
         <div class = "vignette">
@@ -10,6 +11,12 @@ function display_gallery(gallery)  {
         </div>
         `
     }, '')
+    var images = document.querySelectorAll(".vignette");
+    for (let i=0;i < images.length; i++){
+        images[i].addEventListener("click", evt => {
+            lightbox.load(images[i]).then(lightbox_ui.display_lightbox)
+        })
+    }
 }
 
 export default {
