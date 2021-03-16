@@ -4,6 +4,7 @@ import lightbox from "./lightbox.js";
 function display_gallery(gallery)  {
     let container = document.querySelector('#gallery_container');
     let config = "https://webetu.iutnc.univ-lorraine.fr/";
+    console.log(gallery)
     container.innerHTML = gallery.photos.reduce((acc, elem) => {
         return acc + `
         <div class = "vignette">
