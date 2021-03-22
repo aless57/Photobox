@@ -10,7 +10,13 @@ function display_lightbox(data) {
     </div>
 
     <div id="lightbox-img">
+        <button id = "prev-img"> <-- </button>
         <img id="lightbox_full_img" src="${config + data.photo.url.href}">
+        <button id = "next-img"> --> </button>
+    </div>
+    <div id = "infos-photo">
+         <h1> Description : ${data.photo.descr} </h1>
+         <h1> Format : ${data.photo.format} </h1>
     </div>
 </div>
     `
