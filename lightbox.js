@@ -7,12 +7,6 @@ var commentaire;
 function load(node) {
     photoCourante = node;
     var test = node.childNodes[1].getAttribute("data-uri")
-    commentaire = photoloader.loadRessource(test).then(element => element.links.comments.href).then(element => photoloader.loadRessource(element))
-    let res = Array(photoloader.loadRessource(test), commentaire)
-    console.log(res)
-    console.log(commentaire)
-    console.log(photoloader.loadRessource(test))
-    console.log(res[0])
     return photoloader.loadRessource(test);
 }
 
