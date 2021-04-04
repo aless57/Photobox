@@ -31,21 +31,6 @@ function last(){
     })
 }
 
-
-
-// function load2() {
-//     let listPhotos = photoloader.loadRessource("/www/canals5/photobox/photos")
-//          return listPhotos.then(response => {
-//         if(response.ok) {
-//             return response.json();
-//         } else {
-//             console.log("Response error : " + response.status)
-//         }
-//     })
-//         .catch(error => {
-//             console.log("Error : " + error);
-//         })
-// }
             
 
 export default {
@@ -53,6 +38,5 @@ export default {
     prev,
     next,
     first,
-    last,
-    gallery
+    last
 }

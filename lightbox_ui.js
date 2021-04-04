@@ -6,16 +6,6 @@ function display_lightbox(data) {
     let config = "https://webetu.iutnc.univ-lorraine.fr/";
     let linkCom = data.links.comments;
     let lesComPromise = photoloader.loadRessource(linkCom.href)
-    console.log(lesComPromise)
-    lesComPromise.then()
-    // let lesCom = lightbox.commentaire.comments.reduce((acc, elem) => {
-    //         return acc + `
-    //         <h2> ID : ${elem.comments.id}</h2>
-    //         <h2> Titre : ${elem.comments.titre}</h2>
-    //         <h2> Pseudo : ${elem.comments.pseudo}</h2>
-    //         <h2> Content : ${elem.comments.content}</h2>
-    //         <h2> Date : ${elem.comments.date}</h2>`
-    //     });
     container.innerHTML = `
     <div id="lightbox">
     <div id="lightbox-head">
@@ -32,9 +22,23 @@ function display_lightbox(data) {
          <h1> Description : ${data.photo.descr} </h1>
          <h1> Format : ${data.photo.format} </h1>
          <h1> Les commentaires : </h1>
+         <div id="commentaire_photo">
+         
+        </div>
     </div>
 </div>
     `
+    lesComPromise.then(response => {
+        let divPhoto = document.querySelector('#commentaire_photo');
+        let commmentaires = "";
+        for (let i=0;i<response.comments.length; i++){
+            if (response.comments[i].content !=""){
+                commmentaires += `<p>Titre : ${response.comments[i].titre} | Pseudo : ${response.comments[i].pseudo} | ${response.comments[i].content}</p>`
+            }
+        }
+            divPhoto.innerHTML = commmentaires;
+        }
+    )
     document.querySelector('#lightbox_close').addEventListener('click', e => {
         hide();
     })

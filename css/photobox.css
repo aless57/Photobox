@@ -76,6 +76,7 @@ nav #next {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20em,1fr));
     grid-gap: .2em;
+    grid-gap: .2em;
 
 }
 
@@ -142,6 +143,8 @@ nav #next {
   text-align: center;
   margin-top : 20px;
   font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: floralwhite;
 }
 
 #lightbox-img img {
